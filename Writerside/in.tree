@@ -7,4 +7,6 @@
                  start-page="starter.md">
 
     <toc-element topic="starter.md"/>
+    <toc-element topic="Service.md"/>
+    <toc-element topic="Robot.md"/>
 </instance-profile>
