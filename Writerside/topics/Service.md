@@ -35,6 +35,9 @@ gitGraph
     commit id: "ac36f21" tag: "Secure Restart Implemented."
     commit id: "d9c8ab3" tag: "Secure Restart Implemented."
     commit id: "a37fe3c" tag: "Secure Restart Implemented."
+    checkout main
+    merge dev id: "4fc0668"
+    branch bugfix/Service-14
 
 ````
 
