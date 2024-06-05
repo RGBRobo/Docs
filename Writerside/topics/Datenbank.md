@@ -9,6 +9,51 @@ Zum Speichern unserer (Mess-) daten nutzen wir MariaDB in kombination mit einer
 Persistenzschicht für Java. Spezifisch wird in diesem Programm die neuste Version
 von Hibernate-ORM verwendet.
 
+```mermaid
+classDiagram
+class Account {
+    -username String
+    -password String
+    +isSystem() boolean
+}
+class DBObject {
+    -id String
+    -version int
+}
+class Produktion {
+    -name String
+    -datum LocalDateTime
+    -anzahlFertig Integer
+    -bauteile List
+}
+class Bauteil {
+    -nummer Integer
+    -energieaufwand Double
+    -farbe String
+    -messung Messung
+    -produktion Produktion
+}
+class Messung {
+    -nummer Integer
+    -temperatur Double
+    -luftfeuchtigkeit Double
+    -ergebnis String
+    -date LocalDateTime
+    -bauteil Bauteil
+}
+class ServiceAccount {
+    -enabled Boolean
+    +isSystem() boolean
+}
+
+DBObject <|-- Produktion
+DBObject <|-- Bauteil
+DBObject <|-- Messung
+DBObject <|-- Account
+Account <|-- ServiceAccount
+Bauteil "N" --> "1" Produktion
+Bauteil "1" --> "1" Messung
+```
 
 ## FAQ 
 <deflist collapsible="true">
