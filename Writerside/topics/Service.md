@@ -38,7 +38,20 @@ gitGraph
     checkout main
     merge dev id: "4fc0668"
     branch bugfix/Service-14
-
+    checkout dev
+    commit id: "e47555a" tag: "New Kit v2.0.7"
+    checkout main
+    merge dev id: "3be794f"
+    checkout bugfix/Service-14
+    commit id: "f8da32e" tag: "Passwort speicherung"
+    checkout main
+    merge bugfix/Service-14 id: "8d7f946 "
+    checkout dev
+    merge bugfix/Service-14 id: "55cb187"
+    checkout main
+    merge dev id: "eb75b20"
+    checkout dev
+    merge main id: "08161b1"
 ````
 
 
