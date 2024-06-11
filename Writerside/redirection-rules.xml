@@ -86,4 +86,8 @@
         <description>Created after removal of "API Reference" from RGBRobo</description>
         <accepts>API_Reference.html</accepts>
     </rule>
+    <rule id="c74c32a">
+        <description>Created after removal of "Home" from RGBRobo</description>
+        <accepts>starter.html</accepts>
+    </rule>
 </rules>
