@@ -1,5 +1,10 @@
 # Messung Erstellen
 
+> **Info**
+> 
+> Für die weiteren API-Schnittstellen wird die zurückgelieferte ID benötigt.
+> Deswegen sollte diese unbedingt zwischengespeichert werden!
+
 Wenn eine Messung erstellt werden soll, so muss man zuerst das Topic "/new/callback" abonnieren, da dort die ID zurückgeliefert wird.
 Danach muss auf das Topic "/new" eine Nachricht gepublisht werden.
 

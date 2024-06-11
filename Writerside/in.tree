@@ -9,9 +9,12 @@
     <toc-element topic="Service.md">
         <toc-element topic="Datenbank.md"/>
         <toc-element topic="HiveMQ.md">
-            <toc-element topic="API.md">
-                <toc-element topic="Messung-Erstellen.md"/>
-            </toc-element>
+        </toc-element>
+        <toc-element topic="API.md">
+            <toc-element topic="Messung-Erstellen.md"/>
+            <toc-element topic="Farbwerte-Hinzufügen.md"/>
+            <toc-element topic="Temperatur-Hinzufügen.md"/>
+            <toc-element topic="Luftfeuchtigkeit-Hinzufügen.md"/>
         </toc-element>
     </toc-element>
     <toc-element topic="Robot.md"/>
