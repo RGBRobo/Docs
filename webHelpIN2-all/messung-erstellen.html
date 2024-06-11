@@ -1,0 +1,133 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-06-11T10:38:51.0150955"><title>Messung Erstellen | RGBRobo</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Messung Erstellen | RGBRobo"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="RGBRobo Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/messung-erstellen.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Messung Erstellen | RGBRobo"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/messung-erstellen.html#webpage",
+    "url": "writerside-documentation/messung-erstellen.html",
+    "name": "Messung Erstellen | RGBRobo",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "RGBRobo Help"
+}</script><!-- End Schema.org --></head><body data-id="Messung-Erstellen" data-main-title="Messung Erstellen" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Service.md|Service///HiveMQ.md|HiveMQ///API.md|API"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>RGBRobo  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Messung-Erstellen" id="Messung-Erstellen.md">Messung Erstellen</h1><aside class="prompt" data-type="tip" data-title="" id="-ojuwxt_984"><p id="-ojuwxt_985"><span class="control" id="-ojuwxt_986">Important</span></p><p id="-ojuwxt_987">Der Callback Channel muss zuerst abonniert werden!</p></aside><p id="-ojuwxt_988">Wenn eine Messung erstellt werden soll, so muss auf das Topic &quot;/new&quot; eine Nachricht gepublisht werden.</p><div class="tabs" id="-ojuwxt_989" data-anchors="[-ojuwxt_990,-ojuwxt_992]"><div class="tabs__content" data-gtm="tab" id="-ojuwxt_990" data-title="Java"><div class="code-block" data-lang="java" data-title="Java">
+            import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+public class MqttPublisher {
+    public static void main(String[] args) {
+        String broker = &quot;tcp://broker-address:1883&quot;;
+        String clientId = &quot;RGBRobo&quot;;
+        String topic = &quot;/new&quot;;
+        String content = &quot; &quot;; // Content can be Empty in this Topic 
+        int qos = 2;
+        MemoryPersistence persistence = new MemoryPersistence();
+        try {
+            MqttClient mqttClient = new MqttClient(broker, clientId, persistence);
+            mqttClient.connect();
+            MqttMessage message = new MqttMessage(content.getBytes());
+            message.setQos(qos);
+            mqttClient.publish(topic, message);
+            mqttClient.disconnect();
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
+    }
+}</div></div><div class="tabs__content" data-gtm="tab" id="-ojuwxt_992" data-title="Python"><div class="code-block" data-lang="python" data-title="Python">
+            
+import paho.mqtt.client as mqtt
+# Define the broker address and port
+broker = &quot;broker-address&quot;
+port = 1883
+topic = &quot;/new&quot;
+message = &quot; &quot;
+# Create a client instance
+client = mqtt.Client(&quot;RGBRobo&quot;)
+# Connect to the broker
+client.connect(broker, port)
+# Publish the message to the specified topic
+client.publish(topic, message)
+
+# Disconnect from the broker
+client.disconnect()</div></div></div><p id="-ojuwxt_994">Ebenfalls muss man das Topic &quot;/new/callback&quot; abonnieren, da dort die ID zur&uuml;ckgeliefert wird.</p><div class="tabs" id="-ojuwxt_995" data-anchors="[-ojuwxt_996,-ojuwxt_998]"><div class="tabs__content" data-gtm="tab" id="-ojuwxt_996" data-title="Java"><div class="code-block" data-lang="java" data-title="Java">
+            import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+public class MqttSubscriber {
+    public static void main(String[] args) {
+        String broker = &quot;tcp://broker-address:1883&quot;;
+        String clientId = &quot;RGBRobo&quot;;
+        String topic = &quot;/new/callback&quot;;
+
+        MemoryPersistence persistence = new MemoryPersistence();
+
+        try {
+            MqttClient mqttClient = new MqttClient(broker, clientId, persistence);
+
+            mqttClient.setCallback(new MqttCallback() {
+                @Override
+                public void connectionLost(Throwable cause) {
+                    System.out.println(&quot;Connection lost: &quot; + cause.getMessage());
+                }
+
+                @Override
+                public void messageArrived(String topic, MqttMessage message) throws Exception {
+                    System.out.println(&quot;Message received on topic &quot; + topic + &quot;: &quot; + new String(message.getPayload()));
+                }
+
+                @Override
+                public void deliveryComplete(IMqttDeliveryToken token) {
+                    // Not used for subscribing
+                }
+            });
+
+            mqttClient.connect();
+            mqttClient.subscribe(topic);
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="-ojuwxt_998" data-title="Python"><div class="code-block" data-lang="python" data-title="Python">
+
+import paho.mqtt.client as mqtt
+
+# Define the broker address and port
+broker = &quot;broker-address&quot;
+port = 1883
+topic = &quot;/new/callback&quot;
+
+# Callback function for when the client connects to the broker
+def on_connect(client, userdata, flags, rc):
+if rc == 0:
+print(&quot;Connected successfully&quot;)
+client.subscribe(topic)
+else:
+print(&quot;Connection failed with code&quot;, rc)
+
+# Callback function for when a message is received
+def on_message(client, userdata, msg):
+print(f&quot;Message received on topic {msg.topic}: {msg.payload.decode()}&quot;)
+
+# Create a client instance
+client = mqtt.Client(&quot;PythonSampleSubscriber&quot;)
+
+# Assign callback functions
+client.on_connect = on_connect
+client.on_message = on_message
+
+# Connect to the broker
+client.connect(broker, port)
+
+# Start the network loop
+client.loop_forever()
+</div></div></div><div class="last-modified">Last modified: 11 Juni 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="api.html" class="navigation-links__prev">API</a><a href="robot.html" class="navigation-links__next">Robot</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.js"></script></body></html>

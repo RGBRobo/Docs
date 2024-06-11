@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="a4e688a">
+        <description>Created after removal of "Delete user" from RGBRobo</description>
+        <accepts>Delete_user.html</accepts>
+    </rule>
+    <rule id="3ead4518">
+        <description>Created after removal of "Update user" from RGBRobo</description>
+        <accepts>Update_user.html</accepts>
+    </rule>
+    <rule id="13cb09f">
+        <description>Created after removal of "Get user by user name" from RGBRobo</description>
+        <accepts>Get_user_by_user_name.html</accepts>
+    </rule>
+    <rule id="42471ef2">
+        <description>Created after removal of "Logs out current logged in user session" from RGBRobo</description>
+        <accepts>Logs_out_current_logged_in_user_session.html</accepts>
+    </rule>
+    <rule id="2518d205">
+        <description>Created after removal of "Logs user into the system" from RGBRobo</description>
+        <accepts>Logs_user_into_the_system.html</accepts>
+    </rule>
+    <rule id="3a365598">
+        <description>Created after removal of "Creates list of users with given input array" from RGBRobo</description>
+        <accepts>Creates_list_of_users_with_given_input_array.html</accepts>
+    </rule>
+    <rule id="2ab9633e">
+        <description>Created after removal of "Create user" from RGBRobo</description>
+        <accepts>Create_user.html</accepts>
+    </rule>
+    <rule id="2fc528da">
+        <description>Created after removal of "Delete purchase order by ID" from RGBRobo</description>
+        <accepts>Delete_purchase_order_by_ID.html</accepts>
+    </rule>
+    <rule id="2bb06b12">
+        <description>Created after removal of "Find purchase order by ID" from RGBRobo</description>
+        <accepts>Find_purchase_order_by_ID.html</accepts>
+    </rule>
+    <rule id="77374b12">
+        <description>Created after removal of "Place an order for a pet" from RGBRobo</description>
+        <accepts>Place_an_order_for_a_pet.html</accepts>
+    </rule>
+    <rule id="6ac68dba">
+        <description>Created after removal of "Returns pet inventories by status" from RGBRobo</description>
+        <accepts>Returns_pet_inventories_by_status.html</accepts>
+    </rule>
+    <rule id="aae5157">
+        <description>Created after removal of "uploads an image" from RGBRobo</description>
+        <accepts>uploads_an_image.html</accepts>
+    </rule>
+    <rule id="2cc05b88">
+        <description>Created after removal of "Deletes a pet" from RGBRobo</description>
+        <accepts>Deletes_a_pet.html</accepts>
+    </rule>
+    <rule id="3f7f4c3">
+        <description>Created after removal of "Updates a pet in the store with form data" from RGBRobo</description>
+        <accepts>Updates_a_pet_in_the_store_with_form_data.html</accepts>
+    </rule>
+    <rule id="1ff342d5">
+        <description>Created after removal of "Find pet by ID" from RGBRobo</description>
+        <accepts>Find_pet_by_ID.html</accepts>
+    </rule>
+    <rule id="7727bb14">
+        <description>Created after removal of "Finds Pets by tags" from RGBRobo</description>
+        <accepts>Finds_Pets_by_tags.html</accepts>
+    </rule>
+    <rule id="7337bea3">
+        <description>Created after removal of "Finds Pets by status" from RGBRobo</description>
+        <accepts>Finds_Pets_by_status.html</accepts>
+    </rule>
+    <rule id="35320c31">
+        <description>Created after removal of "Add a new pet to the store" from RGBRobo</description>
+        <accepts>Add_a_new_pet_to_the_store.html</accepts>
+    </rule>
+    <rule id="35d036e">
+        <description>Created after removal of "Update an existing pet" from RGBRobo</description>
+        <accepts>Update_an_existing_pet.html</accepts>
+    </rule>
+    <rule id="48ce9086">
+        <description>Created after removal of "API Reference" from RGBRobo</description>
+        <accepts>API_Reference.html</accepts>
+    </rule>
+</rules>
