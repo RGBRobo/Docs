@@ -16,24 +16,24 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MqttPublisher {
-public static void main(String[] args) {
-String broker = "tcp://broker-address:1883";
-String clientId = "RGBRobo";
-String topic = "/new";
-String content = " "; // Content can be Empty in this Topic
-int qos = 2;
-MemoryPersistence persistence = new MemoryPersistence();
-try {
-MqttClient mqttClient = new MqttClient(broker, clientId, persistence);
-mqttClient.connect();
-MqttMessage message = new MqttMessage(content.getBytes());
-message.setQos(qos);
-mqttClient.publish(topic, message);
-mqttClient.disconnect();
-} catch (MqttException me) {
-me.printStackTrace();
-}
-}
+    public static void main(String[] args) {
+        String broker = "tcp://broker-address:1883";
+        String clientId = "RGBRobo";
+        String topic = "/new";
+        String content = " "; // Content can be Empty in this Topic
+        int qos = 2;
+        MemoryPersistence persistence = new MemoryPersistence();
+        try {
+            MqttClient mqttClient = new MqttClient(broker, clientId, persistence);
+            mqttClient.connect();
+            MqttMessage message = new MqttMessage(content.getBytes());
+            message.setQos(qos);
+            mqttClient.publish(topic, message);
+            mqttClient.disconnect();
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
+    }
 }]]></code-block>
 </tab>
 <tab title="Python">
@@ -70,33 +70,33 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MqttSubscriber {
-public static void main(String[] args) {
-String broker = "tcp://broker-address:1883";
-String clientId = "RGBRobo";
-String topic = "/new/callback";
-
+    public static void main(String[] args) {
+        String broker = "tcp://broker-address:1883";
+        String clientId = "RGBRobo";
+        String topic = "/new/callback";
+        
         MemoryPersistence persistence = new MemoryPersistence();
-
+        
         try {
             MqttClient mqttClient = new MqttClient(broker, clientId, persistence);
-
+            
             mqttClient.setCallback(new MqttCallback() {
                 @Override
                 public void connectionLost(Throwable cause) {
                     System.out.println("Connection lost: " + cause.getMessage());
                 }
-
+                
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
                     System.out.println("Message received on topic " + topic + ": " + new String(message.getPayload()));
                 }
-
+                
                 @Override
                 public void deliveryComplete(IMqttDeliveryToken token) {
                     // Not used for subscribing
                 }
             });
-
+            
             mqttClient.connect();
             mqttClient.subscribe(topic);
         } catch (MqttException me) {
