@@ -90,4 +90,8 @@
         <description>Created after removal of "Home" from RGBRobo</description>
         <accepts>starter.html</accepts>
     </rule>
+    <rule id="937c89d">
+        <description>Created after removal of "About Benutzerdokumentation" from Technische Dokumentation</description>
+        <accepts>benutzerdokumentation.html</accepts>
+    </rule>
 </rules>

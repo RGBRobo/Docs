@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="in"
-                 name="RGBRobo"
+                 name="Technische Dokumentation"
                  start-page="Service.md">
 
     <toc-element topic="Service.md">
