@@ -1,5 +1,5 @@
 [
   {"version":"Benutzerdokumentation","url":"/","isCurrent":true},
-  {"version":"Technische Dokumentation","url":"technical","isCurrent":false},
+  {"version":"Technische Dokumentation","url":"/technical/","isCurrent":false},
   {"version":"Reflexion","url":"/docs/reflection","isCurrent":false}
 ]
